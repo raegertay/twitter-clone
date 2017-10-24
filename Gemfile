@@ -55,3 +55,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
 gem 'rubocop'
+gem 'simple_form'
