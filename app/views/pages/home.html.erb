@@ -1,2 +1,35 @@
-<%= link_to 'Logout', destroy_user_session_path, method: :delete %> 
-<h1>Home</h1>
+<div class='container-fluid'>
+
+  <nav class="navbar fixed-top navbar-light bg-light">
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+  </nav>
+
+  <div class='row'>
+
+    <div class='col-3'>
+      <div style="height: 200px; background-color: lightblue;">
+        <h2>For user profile</h2>
+      </div>
+      <div style="height: 400px; background-color: orange;">
+        <h2>For trends</h2>
+      </div>
+    </div>
+
+    <div class='col-6'>
+      <div style="height: 50px; background-color: yellow;">
+        <h2>Add new tweet</h2>
+      </div>
+      <div style="height: 500px; background-color: grey;">
+        <h2>Tweets</h2>
+      </div>
+    </div>
+
+    <div class='col-3'>
+      <div style="height: 500px; background-color: lightgreen;">
+        <h2>For listing other users</h2>
+      </div>
+    </div>
+
+  </div>
+
+</div>
