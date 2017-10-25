@@ -1,0 +1,3 @@
+$('.tweets').prepend(function() {
+  return "<%= j render partial: 'tweets/tweet', locals: {tweet: @tweet} %>";
+});

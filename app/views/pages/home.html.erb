@@ -16,12 +16,18 @@
     </div>
 
     <div class='col-6'>
-      <div style="height: 50px; background-color: yellow;">
-        <h2>Add new tweet</h2>
+
+      <div class='new-tweet-form'>
+        <%= simple_form_for Tweet.new, url: tweets_path, method: :post, remote: true do |f| %>
+        <%= f.input_field :body, label: false, placeholder: "What's happening?", class: 'form-control' %>
+        <%= f.button :submit, "Tweet" %>
+        <% end %>
       </div>
-      <div style="height: 500px; background-color: grey;">
-        <h2>Tweets</h2>
-      </div>
+
+
+      <ul class="tweets list-group">
+      </ul>
+
     </div>
 
     <div class='col-3'>
