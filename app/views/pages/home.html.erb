@@ -24,8 +24,10 @@
         <% end %>
       </div>
 
-
       <ul class="tweets list-group">
+        <% current_user.tweets.order('created_at desc').each do |tweet| %>
+        <%= render partial: 'tweets/tweet', locals: {tweet: tweet} %>
+        <% end %>
       </ul>
 
     </div>
