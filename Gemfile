@@ -54,6 +54,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
+gem 'filestack-rails', '~> 3.1.0'
 gem 'rubocop'
 gem 'rubocop-rspec'
 gem 'simple_form'
