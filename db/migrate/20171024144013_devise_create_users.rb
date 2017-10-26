@@ -6,7 +6,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :encrypted_password, null: false, default: ""
 
       ## Filestack
-      t.string :avatar_url
+      t.string :avatar_url, default: 'default_avatar'
 
       ## Recoverable
       t.string   :reset_password_token
