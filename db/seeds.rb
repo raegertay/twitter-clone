@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user_1 = User.create(email: 'user1@gmail.com', password: 'password', password_confirmation: 'password')
+user_2 = User.create(email: 'user2@gmail.com', password: 'password', password_confirmation: 'password')
+
+5.times do
+  user_1.tweets.create(body: Faker::Movie.quote)
+  user_2.tweets.create(body: Faker::Movie.quote)
+end

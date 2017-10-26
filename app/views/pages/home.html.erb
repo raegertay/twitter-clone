@@ -14,7 +14,7 @@
 
         <%= simple_form_for current_user, { url: update_avatar_path, method: :put } do |f| %>
         <div>
-          <%= f.filestack_field :avatar_url, 'Choose a photo', accept: 'image/*', id: 'unique-id', class: 'btn', uploadInBackground: false, transformations: { crop: { force: true } }  %>
+          <%= f.filestack_field :avatar_url, 'Choose a photo', pickerOptions: { accept: 'image/*', uploadInBackground: false, transformations: { circle: true } }, id: 'unique-id', class: 'btn' %>
         </div>
         <%= f.button :submit, "Save avatar" %>
         <% end %>
@@ -37,7 +37,7 @@
       </div>
 
       <ul class="tweets list-group">
-        <% current_user.tweets.order('created_at desc').each do |tweet| %>
+        <% Tweet.all.order('created_at desc').each do |tweet| %>
         <%= render partial: 'tweets/tweet', locals: {tweet: tweet} %>
         <% end %>
       </ul>
