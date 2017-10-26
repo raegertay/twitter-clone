@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
 
   def update_avatar
-    if current_user.update(user_avatar_params)
-      flash[:notice] = 'Tasklist updated succesfully'
+    if user_avatar_params[:avatar_url] == current_user.avatar_url
+      flash[:alert] = "Please choose a photo first"
+    elsif current_user.update(user_avatar_params)
+      flash[:notice] = 'Avatar updated succesfully'
     else
       flash[:alert] = "Avatar upload failed"
     end

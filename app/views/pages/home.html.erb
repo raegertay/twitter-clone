@@ -1,8 +1,10 @@
+<nav class="navbar fixed-top navbar-light bg-light">
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+</nav>
+
 <div class='container-fluid'>
 
-  <nav class="navbar fixed-top navbar-light bg-light">
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-  </nav>
+  <%= render 'common/flash' %>
 
   <div class='row'>
 

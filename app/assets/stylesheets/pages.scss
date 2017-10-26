@@ -2,6 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.container-fluid {
+  margin-top: 50px;
+}
+
+.notice:empty {
+  display: none;
+}
+
+.alert:empty {
+  display: none;
+}
+
+.notice {
+  color: green;
+}
+
+.alert {
+  color: red;
+}
+
 .text.required.form-control {
   margin-bottom: 10px;
 }
