@@ -6,15 +6,15 @@
 
   <div class='row'>
 
-    <div class='col-3'>
+    <div class='col-3 text-center'>
 
-      <div style="height: 200px; background-color: lightblue;">
+      <div style="height: 250px; background-color: lightblue;">
 
-        <%= filestack_image(current_user.avatar_url, transform: filestack_transform.resize(width:100, height:100)) if current_user.avatar_url %>
+        <%= image_tag current_user.avatar_url, size: '150', class: 'img-thumbnail rounded-circle' if current_user.avatar_url %>
 
         <%= simple_form_for current_user, { url: update_avatar_path, method: :put } do |f| %>
         <div>
-          <%= f.filestack_field :avatar_url, 'Upload Your Avatar!', accept: 'image/*', id: 'unique-id' %>
+          <%= f.filestack_field :avatar_url, 'Choose a photo', accept: 'image/*', id: 'unique-id', class: 'btn', uploadInBackground: false, transformations: { crop: { force: true } }  %>
         </div>
         <%= f.button :submit, "Save avatar" %>
         <% end %>
