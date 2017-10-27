@@ -8,7 +8,7 @@ class Tweet < ApplicationRecord
 
   # Return all tags in tweet in array format
   def scan_tags
-    self.body.scan(/#\w+/);
+    self.body.scan(/#\w+/).uniq
   end
 
 end
