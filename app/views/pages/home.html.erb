@@ -1,0 +1,58 @@
+<nav class="navbar fixed-top navbar-light bg-light">
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+</nav>
+
+<div class='container-fluid'>
+
+  <%= render 'common/flash' %>
+
+  <div class='row'>
+
+    <div class='col-3 text-center'>
+
+      <div style="height: 300px; background-color: lightblue;">
+
+        <%= image_tag current_user.avatar_url, size: '150', class: 'img-thumbnail rounded-circle' if current_user.avatar_url %>
+        <%= content_tag :h4, current_user.username %>
+
+        <%= simple_form_for current_user, { url: update_avatar_path, method: :put } do |f| %>
+        <div>
+          <%= f.filestack_field :avatar_url, 'Choose a photo', pickerOptions: { accept: 'image/*', uploadInBackground: false, transformations: { circle: true } }, id: 'unique-id', class: 'btn' %>
+        </div>
+        <%= f.button :submit, "Save avatar" %>
+        <% end %>
+
+      </div>
+
+      <div style="height: 400px; background-color: orange;">
+        <h2>For trends</h2>
+      </div>
+
+    </div>
+
+    <div class='col-6'>
+
+      <div class='new-tweet-form'>
+        <%= simple_form_for Tweet.new, url: tweets_path, method: :post, remote: true do |f| %>
+        <%= f.input_field :body, label: false, placeholder: "What's happening?", class: 'form-control' %>
+        <%= f.button :submit, "Tweet" %>
+        <% end %>
+      </div>
+
+      <ul class="tweets list-group">
+        <% Tweet.all.order('created_at desc').each do |tweet| %>
+        <%= render partial: 'tweets/tweet', locals: {tweet: tweet} %>
+        <% end %>
+      </ul>
+
+    </div>
+
+    <div class='col-3'>
+      <div style="height: 500px; background-color: lightgreen;">
+        <h2>For listing other users</h2>
+      </div>
+    </div>
+
+  </div>
+
+</div>

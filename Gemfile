@@ -38,6 +38,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -54,6 +55,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
+gem 'faker'
+gem 'filestack-rails', '~> 3.1.0'
 gem 'rubocop'
 gem 'rubocop-rspec'
 gem 'simple_form'
