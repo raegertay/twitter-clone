@@ -40,6 +40,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
