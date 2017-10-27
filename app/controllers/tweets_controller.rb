@@ -5,7 +5,12 @@ class TweetsController < ApplicationController
     if @tweet.save
       @tags = @tweet.scan_tags
       @tags.each do |tag|
-        @tweet.tags.create(body: tag)
+        if Tag.exists?(body: tag)
+          tag_id = Tag.find_by(body: tag).id
+          @tweet.tweet_tags.create(tag_id: tag_id)
+        else
+          @tweet.tags.create(body: tag)
+        end
       end
       respond_to do |format|
         format.js
