@@ -6,4 +6,9 @@ class Tweet < ApplicationRecord
 
   validates :body, presence: true
 
+  # Return all tags in tweet in array format
+  def scan_tags
+    self.body.scan(/#\w+/);
+  end
+
 end

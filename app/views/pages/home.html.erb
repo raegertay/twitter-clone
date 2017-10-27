@@ -10,9 +10,10 @@
 
     <div class='col-3 text-center'>
 
-      <div style="height: 250px; background-color: lightblue;">
+      <div style="height: 300px; background-color: lightblue;">
 
         <%= image_tag current_user.avatar_url, size: '150', class: 'img-thumbnail rounded-circle' if current_user.avatar_url %>
+        <%= content_tag :h4, current_user.username %>
 
         <%= simple_form_for current_user, { url: update_avatar_path, method: :put } do |f| %>
         <div>
