@@ -7,5 +7,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   has_many :tweets, dependent: :destroy
+  has_many :followships
+  has_many :followings, through: :followships
 
 end
