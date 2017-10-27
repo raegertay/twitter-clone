@@ -1,7 +1,12 @@
-<%= content_tag :a, class: ['list-group-item', 'list-group-item-action'] do %>
+<%= link_to '', class: ['list-group-item', 'list-group-item-action'] do %>
 <div class="d-flex w-100">
   <%= image_tag tweet.user.avatar_url, size: '30', class: 'rounded-circle' if tweet.user.avatar_url %>&nbsp;
   <h5 class="mb-2"><%= tweet.user.username %></h5>
 </div>
 <p><%= tweet.body %></p>
+<small>
+  <% tweet.tags.each do |tag| %>
+  <object><%= link_to tag.body, '#' %></object>
+  <% end %>
+</small>
 <% end %>
