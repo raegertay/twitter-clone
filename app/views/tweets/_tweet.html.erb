@@ -6,7 +6,7 @@
 <p><%= tweet.body %></p>
 <small>
   <% tweet.tags.each do |tag| %>
-  <object><%= link_to tag.body, '#' %></object>
+  <object><%= link_to tag.body, tweets_by_tag_path(tag) %></object>
   <% end %>
 </small>
 <% end %>
