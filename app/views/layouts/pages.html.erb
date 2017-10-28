@@ -1,0 +1,85 @@
+<% content_for :post_login do %>
+
+<nav class="navbar fixed-top navbar-light bg-light">
+  <%= link_to 'Home', root_path %>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+</nav>
+
+<div class='container-fluid'>
+
+  <%= render 'common/flash' %>
+
+  <div class='row'>
+
+    <div class='col-3 text-center'>
+
+      <div class='card'>
+
+        <%= image_tag current_user.avatar_url, size: '150', class: 'rounded-circle card-img-top' if current_user.avatar_url %>
+
+        <div class='card-body'>
+          <h4 class='card-title'><%= current_user.username %></h4>
+
+          <%= simple_form_for current_user, { url: update_avatar_path, method: :put } do |f| %>
+          <div>
+            <%= f.filestack_field :avatar_url, 'Choose a photo', pickerOptions: { accept: 'image/*', uploadInBackground: false, transformations: { circle: true } }, id: 'unique-id', class: 'btn' %>
+          </div>
+          <%= f.button :submit, "Save avatar" %>
+          <% end %>
+        </div>
+
+        <div class="list-group list-group-flush">
+
+            <%= link_to following_path, class: 'list-group-item list-group-item-action d-flex justify-content-around align-items-center' do %>
+            Following<span class="badge badge-primary badge-pill"><%= current_user.followings.count %></span>
+            <% end %>
+
+            <%= link_to follower_path, class: 'list-group-item list-group-item-action d-flex justify-content-around align-items-center' do %>
+            Followers<span class="badge badge-primary badge-pill"><%= current_user.followers.count %></span>
+            <% end %>
+
+        </div>
+
+      </div>
+
+      <div style="height: 400px; background-color: orange;">
+        <h2>For trends</h2>
+      </div>
+
+    </div>
+
+    <div class='col-6'>
+      <%= yield %>
+    </div>
+
+    <div class='col-3'>
+      <div class='card'>
+
+        <h4 class='card-header text-center'>Who to follow</h4>
+
+        <div class="list-group list-group-flush">
+
+          <% current_user.not_following.each do |user| %>
+          <div class='list-group-item d-flex justify-content-between align-items-center'>
+
+            <div>
+              <%= image_tag user.avatar_url, size: '30', class: 'rounded-circle' %>&nbsp;
+              <%= user.username %>
+            </div>
+
+            <%= link_to 'Follow', follow_path(user), class: 'btn btn-outline-primary btn-sm', method: :post %>
+
+          </div>
+          <% end %>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<% end %>
+<%= render template: 'layouts/application' %>
