@@ -12,8 +12,10 @@ class UsersController < ApplicationController
   end
 
   def follow
-    @followship = current_user.followships.build(following_id: params[:id])
+    following_id = params[:id]
+    @followship = current_user.followships.build(following_id: following_id)
     @followship.save
+    flash[:notice] = 'Following ' + User.find(following_id).username + ' now'
     redirect_to root_path
   end
 
