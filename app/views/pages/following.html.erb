@@ -7,14 +7,14 @@
 
 <br />
 
-<ul class="following list-group">
+<div class="following list-group">
   <% current_user.followings.order(created_at: :desc).each do |user| %>
-  <li class='list-group-item'>
-    <div class="d-flex w-100">
+  <div class='list-group-item d-flex justify-content-between align-items-center'>
+    <div>
       <%= image_tag user.avatar_url, size: '30', class: 'rounded-circle' %>&nbsp;
-      <h5 class="mb-2"><%= user.username %></h5>
+      <%= user.username %>
     </div>
-    <%= link_to 'Unfollow', unfollow_path(user), class: ['btn', 'btn-primary'], method: :delete, data: {confirm: 'Are you sure?'} %>
-  </li>
+    <%= link_to 'Unfollow', unfollow_path(user), class: 'btn btn-outline-danger btn-sm', method: :delete, data: {confirm: 'Are you sure?'} %>
+  </div>
   <% end %>
-</ul>
+</div>

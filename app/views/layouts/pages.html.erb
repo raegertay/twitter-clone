@@ -1,6 +1,7 @@
 <% content_for :post_login do %>
 
 <nav class="navbar fixed-top navbar-light bg-light">
+  <%= link_to 'Home', root_path %>
   <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 </nav>
 
