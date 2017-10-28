@@ -6,4 +6,6 @@ class PagesController < ApplicationController
 
   def following; end
 
+  def follower; end
+
 end

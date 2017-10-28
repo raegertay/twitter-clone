@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     else
       flash[:alert] = "Avatar upload failed"
     end
-    redirect_to root_path
+    redirect_back(fallback_location: root_path)
   end
 
   def follow
@@ -16,14 +16,14 @@ class UsersController < ApplicationController
     @followship = current_user.followships.build(following_id: following_id)
     @followship.save
     flash[:notice] = 'Following ' + User.find(following_id).username + ' now'
-    redirect_to root_path
+    redirect_back(fallback_location: root_path)
   end
 
   def unfollow
     unfollow_user = User.find(params[:id])
     current_user.followings.destroy(unfollow_user)
     flash[:notice] = 'Unfollowed ' + unfollow_user.username
-    redirect_to following_path
+    redirect_back(fallback_location: root_path)
   end
 
   private
