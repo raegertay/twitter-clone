@@ -13,3 +13,17 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).on("turbolinks:load", function() {
+
+  switch (location.pathname.substr(1)) {
+    case 'following':
+    $("a[href='/following']").addClass('active');
+    break;
+    case 'follower':
+    $("a[href='/follower']").addClass('active');
+    break;
+  }
+  
+});
