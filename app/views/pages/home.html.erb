@@ -40,7 +40,7 @@
       </div>
 
       <ul class="tweets list-group">
-        <% Tweet.all.order('created_at desc').each do |tweet| %>
+        <% current_user.home_tweets.each do |tweet| %>
         <%= render partial: 'tweets/tweet', locals: {tweet: tweet} %>
         <% end %>
       </ul>
