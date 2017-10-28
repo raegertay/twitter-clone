@@ -49,7 +49,10 @@
 
     <div class='col-3'>
       <div style="height: 500px; background-color: lightgreen;">
-        <h2>For listing other users</h2>
+        <% User.where.not(id: current_user.id).each do |user| %>
+        <p><%= user.username %></p>
+        <%= link_to 'Follow', follow_path(user), class: ['btn', 'btn-primary'], method: :post %>
+        <% end %>
       </div>
     </div>
 

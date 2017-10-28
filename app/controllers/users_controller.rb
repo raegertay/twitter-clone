@@ -11,6 +11,12 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def follow
+    @followship = current_user.followships.build(following_id: params[:id])
+    @followship.save
+    redirect_to root_path
+  end
+
   private
 
   def user_avatar_params

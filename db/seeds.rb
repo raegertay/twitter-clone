@@ -8,8 +8,14 @@
 
 user_1 = User.create(username: 'billgates', email: 'billgates@gmail.com', password: 'password', password_confirmation: 'password')
 user_2 = User.create(username: 'stevejobs' , email: 'stevejobs@gmail.com', password: 'password', password_confirmation: 'password')
+user_3 = User.create(username: 'elonmusk' , email: 'elonmusk@gmail.com', password: 'password', password_confirmation: 'password')
+user_4 = User.create(username: 'markzuckerberg' , email: 'markzuckerberg@gmail.com', password: 'password', password_confirmation: 'password')
+user_5 = User.create(username: 'timcook' , email: 'timcook@gmail.com', password: 'password', password_confirmation: 'password')
 
-5.times do
+2.times do
   user_1.tweets.create(body: Faker::Movie.quote)
   user_2.tweets.create(body: Faker::Movie.quote)
+  user_3.tweets.create(body: Faker::Movie.quote)
+  user_4.tweets.create(body: Faker::Movie.quote)
+  user_5.tweets.create(body: Faker::Movie.quote)
 end
