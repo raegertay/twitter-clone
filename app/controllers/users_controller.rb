@@ -19,6 +19,13 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def unfollow
+    unfollow_user = User.find(params[:id])
+    current_user.followings.destroy(unfollow_user)
+    flash[:notice] = 'Unfollowed ' + unfollow_user.username
+    redirect_to following_path
+  end
+
   private
 
   def user_avatar_params
