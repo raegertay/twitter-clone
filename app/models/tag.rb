@@ -5,4 +5,10 @@ class Tag < ApplicationRecord
 
   validates :body, presence: true, uniqueness: true
 
+  # Return the top 10 tags with the most number of tweets
+  def self.top_10
+    tag_ids = TweetTag.group(:tag_id).order('count_all desc').limit(10).count.keys
+    self.find(tag_ids)
+  end
+
 end
