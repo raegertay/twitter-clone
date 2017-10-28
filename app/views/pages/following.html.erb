@@ -42,7 +42,7 @@
       <br />
 
       <ul class="following list-group">
-        <% current_user.followings.each do |user| %>
+        <% current_user.followings.order(created_at: :desc).each do |user| %>
         <li class='list-group-item'>
           <div class="d-flex w-100">
             <%= image_tag user.avatar_url, size: '30', class: 'rounded-circle' %>&nbsp;

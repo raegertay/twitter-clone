@@ -10,17 +10,26 @@
 
     <div class='col-3 text-center'>
 
-      <div style="height: 300px; background-color: lightblue;">
+      <div class='card'>
 
-        <%= image_tag current_user.avatar_url, size: '150', class: 'img-thumbnail rounded-circle' if current_user.avatar_url %>
-        <%= content_tag :h4, current_user.username %>
+        <%= image_tag current_user.avatar_url, size: '150', class: 'rounded-circle card-img-top' if current_user.avatar_url %>
 
-        <%= simple_form_for current_user, { url: update_avatar_path, method: :put } do |f| %>
-        <div>
-          <%= f.filestack_field :avatar_url, 'Choose a photo', pickerOptions: { accept: 'image/*', uploadInBackground: false, transformations: { circle: true } }, id: 'unique-id', class: 'btn' %>
+        <div class='card-body'>
+          <h4 class='card-title'><%= current_user.username %></h4>
+
+          <%= simple_form_for current_user, { url: update_avatar_path, method: :put } do |f| %>
+          <div>
+            <%= f.filestack_field :avatar_url, 'Choose a photo', pickerOptions: { accept: 'image/*', uploadInBackground: false, transformations: { circle: true } }, id: 'unique-id', class: 'btn' %>
+          </div>
+          <%= f.button :submit, "Save avatar" %>
+          <% end %>
         </div>
-        <%= f.button :submit, "Save avatar" %>
-        <% end %>
+
+        <div class="list-group list-group-flush">
+          <%= link_to following_path, class: 'list-group-item list-group-item-action d-flex justify-content-around align-items-center' do %>
+          Following<span class="badge badge-primary badge-pill"><%= current_user.followings.count %></span>
+          <% end %>
+        </div>
 
       </div>
 
@@ -48,13 +57,28 @@
     </div>
 
     <div class='col-3'>
-      <div style="height: 500px; background-color: lightgreen;">
-        <h4>Who to follow</h4>
-        <% current_user.not_following.each do |user| %>
-        <p><%= user.username %></p>
-        <%= link_to 'Follow', follow_path(user), class: ['btn', 'btn-primary'], method: :post %>
-        <% end %>
+      <div class='card'>
+
+        <h4 class='card-header text-center'>Who to follow</h4>
+
+        <div class="list-group list-group-flush">
+
+          <% current_user.not_following.each do |user| %>
+          <div class='list-group-item d-flex justify-content-between align-items-center'>
+
+            <div>
+              <%= image_tag user.avatar_url, size: '30', class: 'rounded-circle' %>&nbsp;
+              <%= user.username %>
+            </div>
+
+            <%= link_to 'Follow', follow_path(user), class: 'btn btn-outline-primary btn-sm', method: :post %>
+
+          </div>
+          <% end %>
+        </div>
+
       </div>
+
     </div>
 
   </div>
