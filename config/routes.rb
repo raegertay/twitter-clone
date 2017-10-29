@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'following', to: 'pages#following'
   get 'follower', to: 'pages#follower'
-  get 'tweets/:id', to: 'pages#tweets_by_user', as: 'tweets_by_user'
+  get 'my_tweets', to: 'pages#my_tweets'
   get 'tag/:id/tweets', to: 'pages#tweets_by_tag', as: 'tweets_by_tag'
 
   put '/update_avatar', to: 'users#update_avatar'

@@ -24,6 +24,9 @@ $(document).on("turbolinks:load", function() {
     case 'follower':
     $("a[href='/follower']").addClass('active');
     break;
+    case 'my_tweets':
+    $("a[href='/my_tweets']").addClass('active');
+    break;
   }
-  
+
 });
