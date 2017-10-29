@@ -13,4 +13,8 @@ class PagesController < ApplicationController
     @tweets = @tag.tweets.order(created_at: :desc)
   end
 
+  def my_tweets
+    @tweets = current_user.tweets.order(created_at: :desc)
+  end
+
 end
