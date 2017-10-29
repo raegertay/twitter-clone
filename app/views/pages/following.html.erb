@@ -6,17 +6,7 @@
 
 <div class="following list-group">
   <% @followings.each do |user| %>
-  <div class='list-group-item d-flex justify-content-between align-items-center'>
-    <div>
-      <%= image_tag user.avatar_url, size: '30', class: 'rounded-circle' %>&nbsp;
-      <%= user.username %>
-    </div>
-    <% if current_user.followings.exists?(user.id) %>
-    <%= link_to 'Unfollow', unfollow_path(user), class: 'btn btn-outline-danger btn-sm', method: :delete %>
-    <% else %>
-    <%= link_to 'Follow', follow_path(user), class: 'btn btn-outline-primary btn-sm', method: :post %>
-    <% end %>
-  </div>
+  <%= render partial: 'user', locals: {user: user} %>
   <% end %>
 </div>
 

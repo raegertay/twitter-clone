@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root 'pages#home'
-  get 'user/:id', to: 'pages#home', as: 'user'
   get 'user/:id/following', to: 'pages#following', as: 'user_following'
   get 'user/:id/follower', to: 'pages#follower', as: 'user_follower'
   get 'user/:id/tweets', to: 'pages#tweets', as: 'user_tweets'
