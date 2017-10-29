@@ -9,7 +9,8 @@ class PagesController < ApplicationController
   def follower; end
 
   def tweets_by_tag
-    @tweets = Tag.find(params[:id]).tweets.order(created_at: :desc)
+    @tag = Tag.find(params[:id])
+    @tweets = @tag.tweets.order(created_at: :desc)
   end
 
 end
