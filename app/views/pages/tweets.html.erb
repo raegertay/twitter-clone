@@ -1,5 +1,13 @@
+<% content_for :profile do %>
+<%= render partial: 'profile', locals: {user: @user} %>
+<% end %>
+
+<% content_for :content do %>
+
 <ul class="tweets list-group">
   <% @tweets.each do |tweet| %>
   <%= render partial: 'tweets/tweet', locals: {tweet: tweet} %>
   <% end %>
 </ul>
+
+<% end %>

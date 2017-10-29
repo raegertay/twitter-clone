@@ -1,19 +1,23 @@
 class PagesController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :prepare_user, only: [:tweets, :following, :follower]
+
 
   def home
-    @user = params[:id] ? User.find(params[:id]) : current_user
-    @tweets = @user == current_user ? @user.mixed_tweets : @user.tweets
+    @user = current_user
+    @tweets = @user.mixed_tweets
+  end
+
+  def tweets
+    @tweets = @user.tweets.order(created_at: :desc)
   end
 
   def following
-    @user = params[:id] ? User.find(params[:id]) : current_user
     @followings = @user.followings.order(created_at: :desc)
   end
 
   def follower
-    @user = params[:id] ? User.find(params[:id]) : current_user
     @followers = @user.followers.order(created_at: :desc)
   end
 
@@ -22,8 +26,10 @@ class PagesController < ApplicationController
     @tweets = @tag.tweets.order(created_at: :desc)
   end
 
-  def my_tweets
-    @tweets = current_user.tweets.order(created_at: :desc)
+  private
+
+  def prepare_user
+    @user = params[:id] ? User.find(params[:id]) : current_user
   end
 
 end
