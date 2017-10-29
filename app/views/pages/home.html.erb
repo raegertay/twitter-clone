@@ -1,12 +1,23 @@
+<% content_for :profile do %>
+<%= render partial: 'profile', locals: {user: @user} %>
+<% end %>
+
+
+<% content_for :content do %>
+
+<% if @user == current_user %>
 <div class='new-tweet-form'>
   <%= simple_form_for Tweet.new, url: tweets_path, method: :post, remote: true do |f| %>
   <%= f.input_field :body, label: false, placeholder: "What's happening?", class: 'form-control' %>
   <%= f.button :submit, "Tweet" %>
   <% end %>
 </div>
+<% end %>
 
 <ul class="tweets list-group">
-  <% current_user.home_tweets.each do |tweet| %>
+  <% @tweets.each do |tweet| %>
   <%= render partial: 'tweets/tweet', locals: {tweet: tweet} %>
   <% end %>
 </ul>
+
+<% end %>

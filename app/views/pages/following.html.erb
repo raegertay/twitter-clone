@@ -1,14 +1,11 @@
-<div class="input-group">
-  <input type="text" class="form-control" placeholder="Search following..." aria-label="Search following...">
-  <span class="input-group-btn">
-    <button class="btn btn-secondary" type="button">Go!</button>
-  </span>
-</div>
+<% content_for :profile do %>
+<%= render partial: 'profile', locals: {user: @user} %>
+<% end %>
 
-<br />
+<% content_for :content do %>
 
 <div class="following list-group">
-  <% current_user.followings.order(created_at: :desc).each do |user| %>
+  <% @followings.each do |user| %>
   <div class='list-group-item d-flex justify-content-between align-items-center'>
     <div>
       <%= image_tag user.avatar_url, size: '30', class: 'rounded-circle' %>&nbsp;
@@ -18,3 +15,5 @@
   </div>
   <% end %>
 </div>
+
+<% end %>

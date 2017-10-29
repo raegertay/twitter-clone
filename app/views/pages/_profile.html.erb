@@ -1,0 +1,24 @@
+<div class='profile card mb-3'>
+  <div class='card-body'>
+    <%= image_tag user.avatar_url, size: '150', class: 'rounded-circle card-img-top' if user.avatar_url %>
+    <h4 class='card-title'><%= user.username %></h4>
+    <%= simple_form_for user, { url: update_avatar_path, method: :put } do |f| %>
+    <div>
+      <%= f.filestack_field :avatar_url, 'Choose a photo', pickerOptions: { accept: 'image/*', uploadInBackground: false, transformations: { circle: true } }, id: 'unique-id', class: 'btn' %>
+    </div>
+    <%= f.button :submit, "Save avatar" %>
+    <% end %>
+  </div>
+
+  <div class="list-group list-group-flush">
+    <%= link_to my_tweets_path, class: 'list-group-item list-group-item-action d-flex justify-content-around align-items-center' do %>
+    Tweets<span class="badge badge-primary badge-pill ml-3"><%= user.tweets.count %></span>
+    <% end %>
+    <%= link_to user_following_path(user), class: 'list-group-item list-group-item-action d-flex justify-content-around align-items-center' do %>
+    Following<span class="badge badge-primary badge-pill"><%= user.followings.count %></span>
+    <% end %>
+    <%= link_to follower_path, class: 'list-group-item list-group-item-action d-flex justify-content-around align-items-center' do %>
+    Followers<span class="badge badge-primary badge-pill"><%= user.followers.count %></span>
+    <% end %>
+  </div>
+</div>

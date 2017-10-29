@@ -2,9 +2,15 @@ class PagesController < ApplicationController
 
   before_action :authenticate_user!
 
-  def home; end
+  def home
+    @user = params[:id] ? User.find(params[:id]) : current_user
+    @tweets = @user == current_user ? @user.mixed_tweets : @user.tweets
+  end
 
-  def following; end
+  def following
+    @user = params[:id] ? User.find(params[:id]) : current_user
+    @followings = @user.followings.order(created_at: :desc)
+  end
 
   def follower; end
 
