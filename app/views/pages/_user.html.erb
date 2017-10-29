@@ -1,0 +1,12 @@
+<%= link_to user_tweets_path(user), class: 'list-group-item list-group-item-action d-flex justify-content-between align-items-center' do %>
+<div>
+  <%= image_tag user.avatar_url, size: '30', class: 'rounded-circle' %>&nbsp;
+  <%= user.username %>
+</div>
+<% if user == current_user %>
+<% elsif current_user.followings.exists?(user.id) %>
+<object><%= link_to 'Unfollow', unfollow_path(user), class: 'btn btn-outline-danger btn-sm', method: :delete %></object>
+<% else %>
+<object><%= link_to 'Follow', follow_path(user), class: 'btn btn-outline-primary btn-sm', method: :post %></object>
+<% end %>
+<% end %>

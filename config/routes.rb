@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   root 'pages#home'
-  get 'following', to: 'pages#following'
-  get 'follower', to: 'pages#follower'
-  get 'my_tweets', to: 'pages#my_tweets'
+  get 'user/:id/following', to: 'pages#following', as: 'user_following'
+  get 'user/:id/follower', to: 'pages#follower', as: 'user_follower'
+  get 'user/:id/tweets', to: 'pages#tweets', as: 'user_tweets'
   get 'tag/:id/tweets', to: 'pages#tweets_by_tag', as: 'tweets_by_tag'
 
   put '/update_avatar', to: 'users#update_avatar'

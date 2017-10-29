@@ -19,7 +19,7 @@ class User < ApplicationRecord
   end
 
   # Return the tweets belonging to self and self.followings, ordered by desc 'created_at'
-  def home_tweets
+  def mixed_tweets
     ids_to_include = self.followings.ids + [self.id]
     Tweet.where(user_id: ids_to_include).order(created_at: :desc)
   end

@@ -1,6 +1,14 @@
+<% content_for :profile do %>
+<%= render partial: 'profile', locals: {user: @user} %>
+<% end %>
+
+<% content_for :content do %>
+
 <small><em>Displaying tweets with tag <%= link_to @tag.body, '' %></em></small>
 <ul class="tweets list-group mt-1">
   <% @tweets.each do |tweet| %>
   <%= render partial: 'tweets/tweet', locals: {tweet: tweet} %>
   <% end %>
 </ul>
+
+<% end %>
