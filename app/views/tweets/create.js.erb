@@ -1,3 +1,5 @@
 $('.tweets').prepend(function() {
   return "<%= j render partial: 'tweets/tweet', locals: {tweet: @tweet} %>";
 });
+
+$('.trending').html("<%= j render 'pages/trending' %>")

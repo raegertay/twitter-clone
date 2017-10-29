@@ -1,0 +1,9 @@
+<h4 class='card-header text-center'>Trends for you</h4>
+<ul class="list-group list-group-flush">
+  <% Tag.top_10.each do |tag| %>
+  <li class='list-group-item d-flex justify-content-between align-items-center'>
+    <%= link_to tag.body, tweets_by_tag_path(tag) %>
+    <span class="badge badge-primary badge-pill"><%= tag.tweets.count %> tweets</span>
+  </li>
+  <% end %>
+</ul>
