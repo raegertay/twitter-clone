@@ -3,8 +3,13 @@
   <div class='col-1'>
     <%= image_tag tweet.user.avatar_url, size: '40', class: 'rounded-circle mr-2' if tweet.user.avatar_url %>
   </div>
-  <div class='col-11'>
+  <div class='col-10'>
     <p class='mb-0'><strong><%= tweet.user.username %></strong></p>
+  </div>
+  <div class='col-1'>
+    <%= content_tag :object do %>
+    <%= link_to image_tag('icons/delete', size: '15'), tweet_path(tweet), method: :delete, data: {confirm: 'Are you sure'} %>
+    <% end if tweet.user == current_user %>
   </div>
 </div>
 

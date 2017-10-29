@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   delete '/unfollow/:id', to: 'users#unfollow', as: 'unfollow'
 
   devise_for :users
-  resources :tweets, only: [:create]
+  resources :tweets, only: [:create, :destroy]
 
 end

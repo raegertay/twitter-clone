@@ -20,6 +20,11 @@ class TweetsController < ApplicationController
     end
   end
 
+  def destroy
+    Tweet.find(params[:id]).destroy
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
   def tweet_params
