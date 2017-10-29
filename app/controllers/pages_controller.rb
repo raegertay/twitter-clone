@@ -13,4 +13,8 @@ class PagesController < ApplicationController
     @tweets = @tag.tweets.order(created_at: :desc)
   end
 
+  def tweets_by_user
+    @tweets = User.find(params[:id]).tweets.order(created_at: :desc)
+  end
+
 end
