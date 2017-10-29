@@ -4,7 +4,10 @@
     <%= image_tag tweet.user.avatar_url, size: '40', class: 'rounded-circle mr-2' if tweet.user.avatar_url %>
   </div>
   <div class='col-10'>
-    <p class='mb-0'><strong><%= tweet.user.username %></strong></p>
+    <p class='mb-0'>
+      <strong><%= tweet.user.username %></strong>
+      <small>&#8231; <%= distance_of_time_in_words_to_now(tweet.created_at) %></small>
+    </p>
   </div>
   <div class='col-1'>
     <%= content_tag :object do %>

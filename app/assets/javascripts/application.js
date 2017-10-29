@@ -18,15 +18,28 @@
 $(document).on("turbolinks:load", function() {
 
   switch (location.pathname.substr(1)) {
+    case 'my_tweets':
+    $("a[href='/my_tweets']").addClass('active');
+    $("a[href='/my_tweets'] span").removeClass('badge-primary').addClass('badge-light');
+    break;
     case 'following':
     $("a[href='/following']").addClass('active');
+    $("a[href='/following'] span").removeClass('badge-primary').addClass('badge-light');
     break;
     case 'follower':
     $("a[href='/follower']").addClass('active');
-    break;
-    case 'my_tweets':
-    $("a[href='/my_tweets']").addClass('active');
+    $("a[href='/follower'] span").removeClass('badge-primary').addClass('badge-light');
     break;
   }
+
+  $('.new-tweet-form .btn').attr('disabled', true);
+  $('.new-tweet-form textarea').keyup(function(){
+      if($(this).val().length !=0)
+          $('.new-tweet-form .btn').attr('disabled', false);
+      else
+          $('.new-tweet-form .btn').attr('disabled', true);
+  });
+
+
 
 });

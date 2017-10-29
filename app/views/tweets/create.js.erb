@@ -2,6 +2,8 @@ $('.tweets').prepend(function() {
   return "<%= j render partial: 'tweets/tweet', locals: {tweet: @tweet} %>";
 });
 
-$('.trending').html("<%= j render 'pages/trending' %>")
+$('.trending').html("<%= j render 'pages/trending' %>");
 
-$('textarea').val('')
+$('textarea').val('');
+
+$('.new-tweet-form .btn').removeAttr('data-disable-with').attr('disabled', true);
