@@ -11,7 +11,11 @@
       <%= image_tag user.avatar_url, size: '30', class: 'rounded-circle' %>&nbsp;
       <%= user.username %>
     </div>
+    <% if current_user.followings.exists?(user.id) %>
     <%= link_to 'Unfollow', unfollow_path(user), class: 'btn btn-outline-danger btn-sm', method: :delete %>
+    <% else %>
+    <%= link_to 'Follow', follow_path(user), class: 'btn btn-outline-primary btn-sm', method: :post %>
+    <% end %>
   </div>
   <% end %>
 </div>

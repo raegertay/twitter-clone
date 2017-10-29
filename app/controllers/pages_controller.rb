@@ -12,7 +12,10 @@ class PagesController < ApplicationController
     @followings = @user.followings.order(created_at: :desc)
   end
 
-  def follower; end
+  def follower
+    @user = params[:id] ? User.find(params[:id]) : current_user
+    @followers = @user.followers.order(created_at: :desc)
+  end
 
   def tweets_by_tag
     @tag = Tag.find(params[:id])
