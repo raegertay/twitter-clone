@@ -17,6 +17,7 @@
 
 $(document).on("turbolinks:load", function() {
 
+  // For toggling profile list-group-item
   switch (location.pathname.substr(1)) {
     case 'my_tweets':
     $("a[href='/my_tweets']").addClass('active');
@@ -32,14 +33,30 @@ $(document).on("turbolinks:load", function() {
     break;
   }
 
+  // For toggling new tweet submit button
   $('.new-tweet-form .btn').attr('disabled', true);
   $('.new-tweet-form textarea').keyup(function(){
-      if($(this).val().length !=0)
-          $('.new-tweet-form .btn').attr('disabled', false);
-      else
-          $('.new-tweet-form .btn').attr('disabled', true);
+    if($(this).val().length !=0)
+    $('.new-tweet-form .btn').attr('disabled', false);
+    else
+    $('.new-tweet-form .btn').attr('disabled', true);
   });
 
-
+  // Link avatar to filestack btn
+  $('.avatar').click(function() {
+    $('.filestack-btn').click();
+  });
 
 });
+
+function updateAvatar(data) {
+  var params = {"avatar_url": data.filesUploaded[0].url };
+  $.ajax({
+    url: '/update_avatar', // your api url
+    // jQuery < 1.9.0 -> use type
+    // jQuery >= 1.9.0 -> use method
+    method: 'PUT', // method is any HTTP method
+    data: params // data as js object
+    // success: function() {}
+  });
+};

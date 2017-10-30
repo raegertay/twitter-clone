@@ -1,13 +1,8 @@
 <div class='profile card mb-3'>
   <div class='card-body'>
-    <%= image_tag user.avatar_url, size: '150', class: 'rounded-circle card-img-top' if user.avatar_url %>
+    <%= image_tag(user.avatar_url, size: '150', class: 'avatar rounded-circle mb-3') %>
     <h4 class='card-title'><%= user.username %></h4>
-    <%= simple_form_for user, { url: update_avatar_path, method: :put } do |f| %>
-    <div>
-      <%= f.filestack_field :avatar_url, 'Choose a photo', pickerOptions: { accept: 'image/*', uploadInBackground: false, transformations: { circle: true } }, id: 'unique-id', class: 'btn' %>
-    </div>
-    <%= f.button :submit, "Save avatar" %>
-    <% end %>
+    <%= filestack_picker_element 'Select photo', 'updateAvatar', class: 'btn filestack-btn', pickerOptions: { accept: 'image/*', uploadInBackground: false, transformations: { circle: true } } %>
   </div>
 
   <div class="list-group list-group-flush">
