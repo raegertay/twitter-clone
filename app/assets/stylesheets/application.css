@@ -22,6 +22,6 @@ html {
   cursor: pointer;
 }
 
-.filestack-btn, .submit-avatar {
+.filestack-btn {
   display: none;
 }

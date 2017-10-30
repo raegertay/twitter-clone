@@ -52,11 +52,8 @@ $(document).on("turbolinks:load", function() {
 function updateAvatar(data) {
   var params = {"avatar_url": data.filesUploaded[0].url };
   $.ajax({
-    url: '/update_avatar', // your api url
-    // jQuery < 1.9.0 -> use type
-    // jQuery >= 1.9.0 -> use method
-    method: 'PUT', // method is any HTTP method
-    data: params // data as js object
-    // success: function() {}
+    url: '/update_avatar',
+    method: 'PUT',
+    data: params
   });
-};
+}
