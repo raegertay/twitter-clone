@@ -18,7 +18,7 @@ html {
   font-size: 14px;
 }
 
-.avatar:hover {
+.current-user-avatar:hover {
   cursor: pointer;
 }
 

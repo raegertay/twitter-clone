@@ -43,7 +43,7 @@ $(document).on("turbolinks:load", function() {
   });
 
   // Link avatar to filestack btn
-  $('.avatar').click(function() {
+  $('.current-user-avatar').click(function() {
     $('.filestack-btn').click();
   });
 
