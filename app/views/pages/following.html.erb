@@ -5,7 +5,7 @@
 <% content_for :content do %>
 
 <div class="following list-group">
-  <% @followings.each do |user| %>
+  <% @followees.each do |user| %>
   <%= render partial: 'user', locals: {user: user} %>
   <% end %>
 </div>

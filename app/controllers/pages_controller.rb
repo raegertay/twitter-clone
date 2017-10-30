@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   end
 
   def following
-    @followings = @user.followings.order(created_at: :desc)
+    @followees = @user.followees.order(created_at: :desc)
   end
 
   def follower
