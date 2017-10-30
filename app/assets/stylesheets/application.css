@@ -17,3 +17,11 @@
 html {
   font-size: 14px;
 }
+
+.current-user-avatar:hover {
+  cursor: pointer;
+}
+
+.filestack-btn {
+  display: none;
+}
