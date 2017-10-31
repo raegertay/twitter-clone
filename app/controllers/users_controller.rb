@@ -13,14 +13,14 @@ class UsersController < ApplicationController
 
   def follow
     @followee = User.find(params[:id])
-    @following = current_user.followings.create(followee_id: @followee.id)
+    current_user.follow(@followee)
     flash[:notice] = 'Following ' + @followee.username + ' now'
     redirect_back(fallback_location: root_path)
   end
 
   def unfollow
     @followee = User.find(params[:id])
-    current_user.followees.destroy(@followee)
+    current_user.unfollow(@followee)
     flash[:notice] = 'Unfollowed ' + @followee.username
     redirect_back(fallback_location: root_path)
   end

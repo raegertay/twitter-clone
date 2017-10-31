@@ -14,6 +14,14 @@ class User < ApplicationRecord
   has_many :inverse_followings, class_name: 'Following', foreign_key: :followee_id, dependent: :destroy
   has_many :followers, through: :inverse_followings
 
+  def follow(followee)
+    self.followings.create(followee: followee)
+  end
+
+  def unfollow(followee)
+    self.followees.destroy(followee)
+  end
+
   # Return users not currently following
   def not_following
     ids_to_exclude = self.followees.ids + [self.id]
