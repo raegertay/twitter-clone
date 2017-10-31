@@ -26,4 +26,6 @@ class User < ApplicationRecord
     Tweet.where(user_id: ids_to_include).order(created_at: :desc)
   end
 
+
+
 end
