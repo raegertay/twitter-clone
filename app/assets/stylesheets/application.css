@@ -18,10 +18,31 @@ html {
   font-size: 14px;
 }
 
-.current-user-avatar:hover {
+.landing-page {
+  background-image: url('landing_page_background');
+  background-size: cover;
+  height: 100vh;
+}
+
+#login-form, #signup-form {
+  background-color: white;
+}
+
+.welcome > h3 {
+  color: white;
+}
+.welcome > h5 {
+  color: white;
+}
+
+.btn:hover {
   cursor: pointer;
 }
 
-.filestack-btn {
-  display: none;
+.landing-page .notice {
+  color: black;
+}
+
+.landing-page .alert {
+  color: red;
 }
