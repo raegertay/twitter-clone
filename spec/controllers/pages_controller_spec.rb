@@ -15,7 +15,7 @@ RSpec.describe PagesController, type: :controller do
   end
 
   describe 'GET #tweets' do
-    before { get :tweets, params: { id: user.id } }
+    before { get :tweets, params: { username: user.username } }
     it { expect(assigns(:tweets).count).to eq(5) }
   end
 
@@ -23,7 +23,7 @@ RSpec.describe PagesController, type: :controller do
     let!(:user2) { create(:user) }
     before do
       user.follow(user2)
-      get :following, params: { id: user.id }
+      get :following, params: { username: user.username }
     end
     it { expect(assigns(:followees).count).to eq(1) }
   end
@@ -32,7 +32,7 @@ RSpec.describe PagesController, type: :controller do
     let!(:user2) { create(:user) }
     before do
       user2.follow(user)
-      get :follower, params: { id: user.id }
+      get :follower, params: { username: user.username }
     end
     it { expect(assigns(:followers).count).to eq(1) }
   end
