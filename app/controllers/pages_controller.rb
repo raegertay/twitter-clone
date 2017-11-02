@@ -28,7 +28,7 @@ class PagesController < ApplicationController
   private
 
   def prepare_user
-    @user = params[:id] ? User.find(params[:id]) : current_user
+    @user = params[:username] ? User.find_by(username: params[:username]) : current_user
   end
 
   def prepare_current_user
