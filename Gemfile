@@ -61,6 +61,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'faker'
 gem 'filestack-rails', '~> 3.1.0'
+gem 'pg_search'
 gem 'rubocop'
 gem 'rubocop-rspec'
 gem 'simple_form'
