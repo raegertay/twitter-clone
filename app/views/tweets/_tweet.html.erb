@@ -11,7 +11,7 @@
   </div>
   <div class='col-1'>
     <%= content_tag :object do %>
-    <%= link_to image_tag('icons/delete', size: '15'), tweet_path(tweet), method: :delete, data: {confirm: 'Are you sure'} %>
+    <%= link_to image_tag('icons/delete', size: '15'), tweet_path(tweet), method: :delete, data: {confirm: 'Are you sure you want to delete this tweet?'} %>
     <% end if tweet.user == current_user %>
   </div>
 </div>
