@@ -6,6 +6,8 @@ class Tweet < ApplicationRecord
 
   validates :body, presence: true, length: { maximum: 140 }
 
+  MAX_WORD_COUNT = 140
+
   # Return all tags in tweet in array format
   def scan_tags
     self.body.scan(/#\w+/).uniq

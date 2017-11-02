@@ -5,12 +5,15 @@
 <% content_for :content do %>
 
 <div class='row'>
-  <div class='col-12 text-right '>
+  <div class='col-12 text-right mb-3'>
     <% if @user == current_user %>
     <div class='new-tweet-form'>
       <%= simple_form_for Tweet.new, url: tweets_path, method: :post, remote: true do |f| %>
-      <%= f.input_field :body, label: false, placeholder: "What's happening?", class: 'form-control border-primary' %>
-      <p>Word count <%= f.button :submit, "Tweet", class: 'btn-primary btn-sm' %></p>
+      <%= f.input_field :body, label: false, placeholder: "What's happening?", class: 'form-control border-primary mb-2', maxlength: Tweet::MAX_WORD_COUNT %>
+      <div>
+        <span class='word-count mr-1'>140</span>
+        <%= f.button :submit, "Tweet", class: 'btn-primary btn-sm' %>
+      </div>
       <% end %>
     </div>
     <% end %>

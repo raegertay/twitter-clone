@@ -33,13 +33,18 @@ $(document).on("turbolinks:load", function() {
     break;
   }
 
-  // For toggling new tweet submit button
+  // For toggling new tweet submit button and calculating word count
+  const MAX_WORD_COUNT = 140;
   $('.new-tweet-form .btn').attr('disabled', true);
-  $('.new-tweet-form textarea').keyup(function(){
-    if($(this).val().length !=0)
-    $('.new-tweet-form .btn').attr('disabled', false);
-    else
-    $('.new-tweet-form .btn').attr('disabled', true);
+  $('.new-tweet-form textarea').on('input change', function(){
+    $('.word-count').text(MAX_WORD_COUNT - $(this).val().length);
+
+    if($(this).val().length == 0) {
+      $('.new-tweet-form .btn').attr('disabled', true);
+    } else {
+      $('.new-tweet-form .btn').attr('disabled', false);
+    }
+
   });
 
   // Link avatar to filestack btn

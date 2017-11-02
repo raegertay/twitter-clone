@@ -1,9 +1,12 @@
+// Add tweet
 $('.tweets').prepend(function() {
   return "<%= j render partial: 'tweets/tweet', locals: {tweet: @tweet} %>";
 });
 
+// Refreshing trending list
 $('.trending').html("<%= j render 'pages/trending' %>");
 
-$('textarea').val('');
-
+// Reset form
+$('.new-tweet-form form')[0].reset();
 $('.new-tweet-form .btn').removeAttr('data-disable-with').attr('disabled', true);
+$('.word-count').text("<%= Tweet::MAX_WORD_COUNT %>");
