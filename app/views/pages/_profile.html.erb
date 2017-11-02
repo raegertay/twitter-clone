@@ -1,4 +1,4 @@
-<div class='profile card mb-3'>
+<div class='profile card mb-3 border-primary'>
   <div class='card-body'>
     <% if user == current_user %>
     <%= image_tag(user.avatar_url, size: '150', class: 'avatar current-user-avatar rounded-circle mb-3') %>
@@ -6,7 +6,7 @@
     <% else %>
     <%= image_tag(user.avatar_url, size: '150', class: 'avatar rounded-circle mb-3') %>
     <% end %>
-    <h4 class='card-title'><%= user.username %></h4>
+    <h4 class='card-title'><strong><%= user.username %></strong></h4>
   </div>
 
   <div class="list-group list-group-flush">
