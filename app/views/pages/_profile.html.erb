@@ -6,7 +6,14 @@
     <% else %>
     <%= image_tag(user.avatar_url, size: '150', class: 'avatar rounded-circle mb-3') %>
     <% end %>
+    
     <h4 class='card-title'><strong><%= user.username %></strong></h4>
+    <% if user == current_user %>
+    <% elsif current_user.followees.exists?(user.id) %>
+    <object><%= link_to 'Unfollow', unfollow_path(user), class: 'btn btn-outline-danger btn-sm', method: :delete %></object>
+    <% else %>
+    <object><%= link_to 'Follow', follow_path(user), class: 'btn btn-outline-primary btn-sm', method: :post %></object>
+    <% end %>
   </div>
 
   <div class="list-group list-group-flush">
