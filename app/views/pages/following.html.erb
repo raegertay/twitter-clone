@@ -4,6 +4,8 @@
 
 <% content_for :content do %>
 
+<%= content_tag :em, 'No followees found.', class: 'small' if @followees.empty? %>
+
 <div class="following list-group">
   <% @followees.each do |user| %>
   <%= render partial: 'user', locals: {user: user} %>

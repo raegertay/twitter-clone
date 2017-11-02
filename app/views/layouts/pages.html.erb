@@ -1,8 +1,8 @@
 <% content_for :post_login do %>
 
-<nav class="navbar fixed-top navbar-light bg-light">
-  <%= link_to 'Home', root_path %>
-  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<nav class="navbar fixed-top navbar-light bg-white">
+  <%= link_to image_tag('icons/home', size: '25'), root_path %>
+  <%= link_to image_tag('icons/logout', size: '25'), destroy_user_session_path, method: :delete %>
 </nav>
 
 <div class='container-fluid pages'>
@@ -15,9 +15,7 @@
 
       <%= yield(:profile) %>
 
-      <div class='trending card'>
-        <%= render 'trending' %>
-      </div>
+      <%= render 'trending' %>
 
     </div>
 
@@ -27,8 +25,8 @@
 
     <div class='right-panel col-3'>
 
-      <div class='who-to-follow card'>
-        <h4 class='card-header text-center'>Who to follow</h4>
+      <div class='who-to-follow card bg-primary text-white'>
+        <h4 class='card-header text-center'><strong>Who to follow</strong></h4>
         <div class="list-group list-group-flush">
           <% current_user.not_following.each do |user| %>
           <%= render partial: 'user', locals: {user: user} %>

@@ -3,7 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .container-fluid.pages {
-  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  background-color: #e6ecf0;
+  min-height: 100vh;
 }
 
 .notice:empty {
@@ -22,12 +25,8 @@
   color: red;
 }
 
-.text.required.form-control {
-  margin-bottom: 10px;
-}
-
-.new-tweet-form {
-  margin-bottom: 10px;
+.new-tweet-form textarea {
+  resize: none;
 }
 
 .current-user-avatar:hover {
@@ -36,4 +35,17 @@
 
 .filestack-btn {
   display: none;
+}
+
+.tweets p {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
