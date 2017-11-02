@@ -20,6 +20,7 @@
   </div>
 </div>
 
+<%= content_tag :em, 'No tweets found.', class: 'small' if @tweets.empty? %>
 
 <ul class="tweets list-group">
   <% @tweets.each do |tweet| %>
