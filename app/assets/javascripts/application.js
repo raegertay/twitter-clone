@@ -36,7 +36,7 @@ $(document).on("turbolinks:load", function() {
   // For toggling new tweet submit button and calculating word count
   const MAX_WORD_COUNT = 140;
   $('.new-tweet-form .btn').attr('disabled', true);
-  $('.new-tweet-form textarea').on('input change', function(){
+  $('.new-tweet-form textarea').on('input change', function() {
     $('.word-count').text(MAX_WORD_COUNT - $(this).val().length);
 
     if($(this).val().length == 0) {

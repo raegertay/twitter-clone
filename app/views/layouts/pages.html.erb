@@ -1,8 +1,20 @@
 <% content_for :post_login do %>
 
 <nav class="navbar fixed-top navbar-light bg-white">
+
   <%= link_to image_tag('icons/home', size: '25'), root_path %>
-  <%= link_to image_tag('icons/logout', size: '25'), destroy_user_session_path, method: :delete %>
+
+  <div class=' d-flex justify-content-end align-items-center'>
+    <%= form_tag search_path, method: :get, class: "input-group input-group-sm mr-5" do %>
+    <%= text_field_tag :search, params[:search], class:'form-control border-primary', placeholder: 'Search users, tweets or tags...' %>
+    <span class="input-group-btn">
+      <%= submit_tag "Search", name: nil, class: 'btn btn-primary' %>
+    </span>
+    <% end %>
+
+    <%= link_to image_tag('icons/logout', size: '25'), destroy_user_session_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+  </div>
+
 </nav>
 
 <div class='container-fluid pages'>
