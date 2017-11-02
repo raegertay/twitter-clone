@@ -17,7 +17,7 @@ class User < ApplicationRecord
   include PgSearch
   pg_search_scope :search,
                   against: :username,
-                  using: :trigram
+                  using: { trigram: { threshold: 0.1 } } 
 
   def follow(followee)
     self.followings.create(followee: followee)

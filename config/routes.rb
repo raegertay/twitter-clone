@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'user/:username/follower', to: 'pages#follower', as: 'user_follower'
   get 'user/:username/tweets', to: 'pages#tweets', as: 'user_tweets'
   get 'tag/:id/tweets', to: 'pages#tweets_by_tag', as: 'tweets_by_tag'
+  get 'search', to: 'pages#search'
 
   put '/update_avatar', to: 'users#update_avatar'
   post '/follow/:id', to: 'users#follow', as: 'follow'

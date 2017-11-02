@@ -8,7 +8,7 @@ class Tag < ApplicationRecord
   include PgSearch
   pg_search_scope :search,
                   against: :body,
-                  using: :trigram
+                  using: { trigram: { threshold: 0.1 } } 
 
   # Return the top 10 tags with the most number of tweets
   def self.top_10

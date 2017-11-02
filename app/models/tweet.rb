@@ -9,7 +9,7 @@ class Tweet < ApplicationRecord
   include PgSearch
   pg_search_scope :search,
                   against: :body,
-                  using: :trigram
+                  using: { trigram: { threshold: 0.1 } } 
 
   MAX_WORD_COUNT = 140
 
