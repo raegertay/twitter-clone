@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  :recoverable, :rememberable, :trackable, :validatable
 
   validates :username, presence: true, uniqueness: true
 
@@ -13,6 +13,11 @@ class User < ApplicationRecord
 
   has_many :inverse_followings, class_name: 'Following', foreign_key: :followee_id, dependent: :destroy
   has_many :followers, through: :inverse_followings
+
+  include PgSearch
+  pg_search_scope :search,
+                  against: :username,
+                  using: :trigram
 
   def follow(followee)
     self.followings.create(followee: followee)

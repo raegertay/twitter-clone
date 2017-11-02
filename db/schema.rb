@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030143800) do
+ActiveRecord::Schema.define(version: 20171102095756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_trgm"
 
   create_table "followings", force: :cascade do |t|
     t.bigint "follower_id"
@@ -23,6 +24,15 @@ ActiveRecord::Schema.define(version: 20171030143800) do
     t.index ["followee_id"], name: "index_followings_on_followee_id"
     t.index ["follower_id", "followee_id"], name: "index_followings_on_follower_id_and_followee_id", unique: true
     t.index ["follower_id"], name: "index_followings_on_follower_id"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
   create_table "tags", force: :cascade do |t|

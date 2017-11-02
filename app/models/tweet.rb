@@ -6,6 +6,11 @@ class Tweet < ApplicationRecord
 
   validates :body, presence: true, length: { maximum: 140 }
 
+  include PgSearch
+  pg_search_scope :search,
+                  against: :body,
+                  using: :trigram
+
   MAX_WORD_COUNT = 140
 
   # Return all tags in tweet in array format
