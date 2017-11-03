@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence(:email) { |n| "test#{n}@gmail.com" }
     password 'password'
     password_confirmation 'password'
-    sequence(:username) { |n| "test#{n}" }
+    sequence(:username) { |n| "#test test#{n}" }
 
     factory :user_with_tweets do
       transient do
