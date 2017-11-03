@@ -1,7 +1,8 @@
 class TweetsController < ApplicationController
 
   def create
-    @tweet = current_user.tweets.build(tweet_params)
+    @user = current_user
+    @tweet = @user.tweets.build(tweet_params)
     @tweet.save_with_tags
     respond_to do |format|
       format.js
@@ -9,7 +10,8 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    Tweet.find(params[:id]).destroy
+    @tweet = Tweet.find(params[:id])
+    @tweet.destroy
     redirect_back(fallback_location: root_path)
   end
 
