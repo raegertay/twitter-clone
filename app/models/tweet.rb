@@ -7,9 +7,14 @@ class Tweet < ApplicationRecord
   validates :body, presence: true, length: { maximum: 140 }
 
   include PgSearch
+  # pg_search_scope :search,
+  #                 against: :body,
+  #                 using: {
+  #                   tsearch: {prefix: true}
+  #                 }
   pg_search_scope :search,
                   against: :body,
-                  using: { trigram: { threshold: 0.1 } }
+                  using: { trigram: { threshold: 0.03 } } 
 
   MAX_WORD_COUNT = 140
 
