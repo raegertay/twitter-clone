@@ -37,4 +37,23 @@ RSpec.describe PagesController, type: :controller do
     it { expect(assigns(:followers).count).to eq(1) }
   end
 
+  describe 'GET #tweets_by_tag' do
+    let(:tweet) { create(:tweet_with_tags) }
+    before do
+      get :tweets_by_tag, params: { id: tweet.tags.first.id }
+    end
+    it { expect(assigns(:tag)).to eq(tweet.tags.first) }
+    it { expect(assigns(:tweets).count).to eq(1) }
+  end
+
+  describe 'GET #search' do
+    let!(:user_1) { create(:user, username: 'ruby') }
+    let!(:tweet) { create(:tweet, body: 'ruby') }
+    let!(:tag) { create(:tag, body: 'ruby') }
+    before { get :search, params: { search: 'ruby' } }
+    it { expect(assigns(:users).count).to eq(1) }
+    it { expect(assigns(:tweets).count).to eq(1) }
+    it { expect(assigns(:tags).count).to eq(1) }
+  end
+
 end

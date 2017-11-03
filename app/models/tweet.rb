@@ -14,7 +14,7 @@ class Tweet < ApplicationRecord
   #                 }
   pg_search_scope :search,
                   against: :body,
-                  using: { trigram: { threshold: 0.03 } } 
+                  using: { trigram: { threshold: 0.03 } }
 
   MAX_WORD_COUNT = 140
 
@@ -34,6 +34,7 @@ class Tweet < ApplicationRecord
         self.tags.create(body: tag)
       end
     end
+    self
   end
 
 end
