@@ -1,4 +1,4 @@
-<div class='container-fluid landing-page d-flex align-items-center'>
+<div class='container-fluid prelogin-page d-flex align-items-center'>
 
   <div class='row justify-content-center'>
 
@@ -29,7 +29,9 @@
         <%= render "devise/shared/links" %>
       </div>
 
-      <%= render "devise/shared/registration_form" %>
+      <div id='signup-form' class='p-3'>
+        <%= render "devise/shared/registration_form" %>
+      </div>
 
     </div>
 

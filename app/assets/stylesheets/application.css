@@ -18,8 +18,8 @@ html {
   font-size: 14px;
 }
 
-.landing-page {
-  background-image: url('landing_page_background');
+.prelogin-page {
+  background-image: url('prelogin_page_background');
   background-size: cover;
   height: 100vh;
 }
