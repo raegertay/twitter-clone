@@ -24,7 +24,7 @@ html {
   height: 100vh;
 }
 
-#login-form, #signup-form {
+#login-form, #signup-form, #password-reset-form {
   background-color: white;
 }
 
