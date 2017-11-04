@@ -15,7 +15,11 @@
 */
 
 html {
-  font-size: 14px;
+  font-size: 14px;  
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
 }
 
 .prelogin-page {

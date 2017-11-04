@@ -1,10 +1,10 @@
-<div class='trending card bg-primary text-white'>
-  <h4 class='card-header text-center'><strong>Trends for you</strong></h4>
+<div class='trending card'>
+  <h4 class='card-header text-center bg-primary text-white'><strong>Trends for you</strong></h4>
   <ul class="list-group list-group-flush">
     <% Tag.top_10.each do |tag| %>
-    <%= link_to tweets_by_tag_path(tag), class: 'list-group-item list-group-item-action d-flex justify-content-between align-items-center' do %>
+    <%= link_to tweets_by_tag_path(tag), class: 'list-group-item list-group-item-action d-flex justify-content-between align-items-center border-0' do %>
     <object><%= link_to tag.body, tweets_by_tag_path(tag) %></object>
-    <span class="badge badge-primary badge-pill"><%= tag.tweets.count %> tweets</span>
+    <span class="badge badge-light badge-pill"><%= tag.tweets.count %> tweets</span>
     <% end %>
     <% end %>
   </ul>

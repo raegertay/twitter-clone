@@ -43,8 +43,8 @@
 
     <div class='right-panel col-3'>
 
-      <div class='who-to-follow card bg-primary text-white'>
-        <h4 class='card-header text-center'><strong>Who to follow</strong></h4>
+      <div class='who-to-follow card'>
+        <h4 class='card-header text-center bg-primary text-white'><strong>Who to follow</strong></h4>
         <div class="list-group list-group-flush">
           <% current_user.not_following.each do |user| %>
           <%= render partial: 'user', locals: {user: user} %>
