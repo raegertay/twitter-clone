@@ -22,7 +22,7 @@
 
 <%= content_tag :em, 'No tweets found.', class: 'small' if @tweets.empty? %>
 
-<%= link_to_next_page @tweets, 'Next', remote: true %>
+<%= link_to_next_page @tweets, 'Next', remote: true, id: 'next-page-link' %>
 
 <ul class="tweets list-group">
   <% @tweets.each do |tweet| %>

@@ -52,6 +52,21 @@ $(document).on("turbolinks:load", function() {
     $('.filestack-btn').click();
   });
 
+  // Auto AJAX loading of more tweets
+  var justLoaded = false;
+  $(window).scroll(function() {
+    var pageBottomPosition = $('html, body').scrollTop() + $(window).height();
+    var lastTweetPosition = $('.tweets > div:last').offset().top + $('.tweets > div:last').height();
+    if (pageBottomPosition >= lastTweetPosition && $('#next-page-link') && !justLoaded) {
+      $('#next-page-link')[0].click();
+      console.log("Load new tweets");
+      justLoaded = true;
+      setTimeout(function() {
+        justLoaded = false;
+      }, 500);
+    }
+  });
+
 });
 
 function updateAvatar(data) {
