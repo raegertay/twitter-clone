@@ -7,6 +7,10 @@ class PagesController < ApplicationController
 
   def home
     @tweets = @user.mixed_tweets.page(params[:page])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def tweets
