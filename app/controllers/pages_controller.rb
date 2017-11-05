@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   before_action :prepare_search_term, only: [:search]
 
   def home
-    @tweets = @user.mixed_tweets
+    @tweets = @user.mixed_tweets.page(params[:page])
   end
 
   def tweets

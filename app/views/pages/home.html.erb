@@ -22,6 +22,8 @@
 
 <%= content_tag :em, 'No tweets found.', class: 'small' if @tweets.empty? %>
 
+<%= paginate @tweets %>
+
 <ul class="tweets list-group">
   <% @tweets.each do |tweet| %>
   <%= render partial: 'tweets/tweet', locals: {tweet: tweet} %>
