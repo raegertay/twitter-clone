@@ -6,6 +6,9 @@ $('.tweets').prepend(function() {
 // Refreshing trending list
 $('.trending').html("<%= j render 'pages/trending' %>");
 
+// Refreshing tweets count in user profile
+$('#user-tweets-count').text("<%= @user.tweets.count %>");
+
 // Reset form
 $('.new-tweet-form form')[0].reset();
 $('.new-tweet-form .btn').removeAttr('data-disable-with').attr('disabled', true);

@@ -18,7 +18,7 @@
 
   <div class="list-group list-group-flush">
     <%= link_to user_tweets_path(user.username), class: 'list-group-item list-group-item-action d-flex justify-content-around align-items-center' do %>
-    Tweets<span class="badge badge-primary badge-pill ml-3"><%= user.tweets.count %></span>
+    Tweets<span class="badge badge-primary badge-pill ml-3" id='user-tweets-count'><%= user.tweets.count %></span>
     <% end %>
     <%= link_to user_following_path(user.username), class: 'list-group-item list-group-item-action d-flex justify-content-around align-items-center' do %>
     Following<span class="badge badge-primary badge-pill"><%= user.followees.count %></span>

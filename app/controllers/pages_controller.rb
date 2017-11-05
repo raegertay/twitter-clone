@@ -6,11 +6,19 @@ class PagesController < ApplicationController
   before_action :prepare_search_term, only: [:search]
 
   def home
-    @tweets = @user.mixed_tweets
+    @tweets = @user.mixed_tweets.page(params[:page])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def tweets
-    @tweets = @user.tweets.order(created_at: :desc)
+    @tweets = @user.tweets.order(created_at: :desc).page(params[:page])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def following
