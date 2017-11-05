@@ -1,7 +1,9 @@
+// Append tweets
 <% @tweets.each do |tweet| %>
 $('.tweets').append("<%= j render partial: 'tweets/tweet', locals: {tweet: tweet} %>");
 <% end %>
 
+// Update link to next page or destroy link if last page
 var path_to_next_page = "<%= j path_to_next_page @tweets %>";
 if(path_to_next_page == '') {
   $('#next-page-link').remove();
