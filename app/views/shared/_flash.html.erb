@@ -1,4 +1,11 @@
-<div class='text-center'>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<% if notice %>
+<div class='text-center flash-banner bg-success w-100'>
+  <p class="notice text-white m-0"><%= notice %></p>
 </div>
+<% end %>
+
+<% if alert %>
+<div class='text-center flash-banner bg-danger w-100'>
+  <p class="alert text-white m-0"><%= alert %></p>
+</div>
+<% end %>

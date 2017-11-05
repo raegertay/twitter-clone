@@ -15,11 +15,23 @@
 */
 
 html {
-  font-size: 14px;  
+  font-size: 14px;
 }
 
 body {
   font-family: 'Work Sans', sans-serif;
+}
+
+.flash-banner {
+  z-index: 1031;
+  position: fixed;
+  top: 0;
+  opacity: 0.8;
+}
+
+.flash-banner p {
+  line-height: 4;
+  font-weight: bolder;
 }
 
 .prelogin-page {

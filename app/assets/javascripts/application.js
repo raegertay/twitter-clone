@@ -51,6 +51,13 @@ $(document).on("turbolinks:load", function() {
     $('.filestack-btn').click();
   });
 
+  // Hide flash banner
+  setTimeout(function() {
+    $('.flash-banner p').animate({
+      height: "toggle"
+    }, 1000);
+  }, 3000);
+
 });
 
 function updateAvatar(data) {

@@ -16,6 +16,8 @@
 
 <body>
 
+  <%= render 'shared/flash' %>
+
   <%= content_for?(:post_login) ? yield(:post_login) : yield %>
 
 </body>
