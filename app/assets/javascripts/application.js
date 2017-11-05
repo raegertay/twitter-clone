@@ -57,7 +57,7 @@ $(document).on("turbolinks:load", function() {
   $(window).scroll(function() {
     var pageBottomPosition = $('html, body').scrollTop() + $(window).height();
     var lastTweetPosition = $('.tweets > div:last').offset().top + $('.tweets > div:last').height();
-    if (pageBottomPosition >= lastTweetPosition && $('#next-page-link') && !justLoaded) {
+    if (pageBottomPosition >= lastTweetPosition && $('#next-page-link').length && !justLoaded) {
       $('#next-page-link')[0].click();
       console.log("Load new tweets");
       justLoaded = true;

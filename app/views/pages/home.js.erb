@@ -1,3 +1,13 @@
 <% @tweets.each do |tweet| %>
-$('.tweets').append("<%= j render partial: 'tweets/tweet', locals: {tweet: tweet} %>")
+$('.tweets').append("<%= j render partial: 'tweets/tweet', locals: {tweet: tweet} %>");
 <% end %>
+
+var path_to_next_page = "<%= j path_to_next_page @tweets %>";
+if(path_to_next_page == '') {
+  $('#next-page-link').remove();
+  $('.tweets').append("<%= j content_tag :em, 'No more tweets.', class: 'small text-center' %>");
+  console.log('Link deleted');
+} else {
+  $('#next-page-link').attr('href', path_to_next_page);
+  console.log('Updated link');
+}
