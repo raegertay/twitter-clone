@@ -2,6 +2,7 @@
 <% @tweets.each do |tweet| %>
 $('.tweets').append("<%= j render partial: 'tweets/tweet', locals: {tweet: tweet} %>");
 <% end %>
+console.log("Tweets added");
 
 // Update link to next page or destroy link if last page
 var path_to_next_page = "<%= j path_to_next_page @tweets %>";
