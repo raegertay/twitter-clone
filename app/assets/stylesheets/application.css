@@ -40,7 +40,7 @@ body {
   height: 100vh;
 }
 
-#login-form, #signup-form, #password-reset-form {
+#login-form, #signup-form, #password-reset-form, #edit-user-form {
   background-color: white;
 }
 
