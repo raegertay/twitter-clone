@@ -62,3 +62,7 @@ body {
 .landing-page .alert {
   color: red;
 }
+
+.dropdown-menu {
+  left: -400%;
+}
