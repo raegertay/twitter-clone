@@ -1,11 +1,11 @@
 <%= content_tag :div, class: 'list-group-item px-4' do %>
 <div class="row align-items-center">
   <div class='col-1'>
-    <object><%= link_to image_tag(tweet.user.avatar_url, size: '40', class: 'rounded-circle mr-2'), user_tweets_path(tweet.user) %></object>
+    <object><%= link_to image_tag(tweet.user.avatar_url, size: '40', class: 'rounded-circle mr-2'), user_tweets_path(tweet.user.username) %></object>
   </div>
   <div class='col-10'>
     <p class='mb-0'>
-      <object><strong><%= link_to tweet.user.username, user_tweets_path(tweet.user) %></strong></object>
+      <object><strong><%= link_to tweet.user.username, user_tweets_path(tweet.user.username) %></strong></object>
       <small>&#8231; <%= distance_of_time_in_words_to_now(tweet.created_at) %></small>
     </p>
   </div>
