@@ -12,7 +12,7 @@ user_3 = User.create(username: 'elonmusk' , email: 'elonmusk@gmail.com', passwor
 user_4 = User.create(username: 'markzuckerberg' , email: 'markzuckerberg@gmail.com', password: 'password', password_confirmation: 'password', avatar_url: 'https://cdn.filestackcontent.com/GkmZqd9jSKOO734BdQTC')
 user_5 = User.create(username: 'jackdorsey' , email: 'jackdorsey@gmail.com', password: 'password', password_confirmation: 'password', avatar_url: 'https://cdn.filestackcontent.com/O6gCajVVQHC7BgwPkxX5')
 
-2.times do
+5.times do
   user_1.tweets.build(body: Faker::Hacker.say_something_smart + ' #rubyonrails #ruby #webdevelopment #alphacamp').save_with_tags
   user_2.tweets.build(body: Faker::Hacker.say_something_smart + ' #rubyonrails #ruby #webdevelopment #alphacamp').save_with_tags
   user_3.tweets.build(body: Faker::Hacker.say_something_smart + ' #rubyonrails #ruby #webdevelopment #alphacamp').save_with_tags

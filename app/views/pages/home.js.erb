@@ -1,3 +1,7 @@
+// Destroy spinner
+$('.spinner').remove()
+console.log('Spinner destroyed')
+
 // Append tweets
 <% @tweets.each do |tweet| %>
 $('.tweets').append("<%= j render partial: 'tweets/tweet', locals: {tweet: tweet} %>");
