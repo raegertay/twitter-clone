@@ -17,8 +17,7 @@ $(document).on("turbolinks:load", function() {
     }
     // console.log(`Ready to load(before if): ${readyToLoad}`);
     if (readyToLoad && pageBottomPosition >= lastTweetPosition && $('#next-page-link').length) {
-      $('.tweets').append("<img src='<%= asset_path('icons/spinner.svg') %>' class='spinner' />");
-      console.log('Show spinner')
+      $('.spinner').css("visibility", 'visible')
       $('#next-page-link')[0].click();
       // console.log("Loading new tweets");
       readyToLoad = false;

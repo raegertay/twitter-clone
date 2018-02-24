@@ -1,5 +1,5 @@
-// Destroy spinner
-$('.spinner').remove()
+// Hide spinner
+$('.spinner').css('visibility', 'hidden')
 console.log('Spinner destroyed')
 
 // Append tweets
@@ -12,6 +12,7 @@ $('.tweets').append("<%= j render partial: 'tweets/tweet', locals: {tweet: tweet
 var path_to_next_page = "<%= j path_to_next_page @tweets %>";
 if(path_to_next_page == '') {
   $('#next-page-link').remove();
+  $('.spinner').remove()
   $('.tweets').append("<%= j content_tag :em, 'No more tweets.', class: 'small text-center' %>");
   // console.log('Link deleted');
 } else {
