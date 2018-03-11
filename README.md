@@ -1,5 +1,7 @@
-# TWITTER CLONE
+# HELLO FRIENDZ
 
-## Heroku
-https://twitter-clone-raeger.herokuapp.com/
+A twitter clone
+
+## LIVE VERSION
+Click [here](https://hello-friendz.herokuapp.com/) to go to the app.
 
